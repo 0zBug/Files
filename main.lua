@@ -19,9 +19,10 @@ function Files(Path, Value)
 		__index = function(self, Index)
 			local Path = Path .. Index
 
-      local Contents = isfile(Path) and readfile(Path) or isfolder(Index) and Index or false
+			local Contents = isfile(Path) and readfile(Path) or isfolder(Path) and Path
+			local File = Files(Path, Contents)
 
-			return Contents and Files(Path, Contents) or nil
+			return Contents and File or nil
 		end,
 		__newindex = function(self, Index, Value)
 			local Path = Path .. Index
