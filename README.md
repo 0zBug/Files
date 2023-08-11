@@ -2,18 +2,16 @@
 better than writefile.
 
 ```lua
-local files = Files()
-
-files.apple = {
+Files.apple = {
 	banana = "money!",
 	orange = {
 		pear = "yummy"
 	}
 }
 
-files.sex = "hak"
+Files.sex = "hak"
 
-print(files.apple.orange.pear) --> yummy
-print(files.apple) --> apple
-print(files.sex) --> hak
+print(Files.apple.orange.pear) --> yummy
+print(Files.apple) --> apple
+print(Files.sex) --> hak
 ```
