@@ -34,7 +34,7 @@ function Files(Path, Value, Meta)
 				
 				Build(Path, Value)
 			else
-				writefile(Path, Value)
+				writefile(Path, tostring(Value))
 			end
 		end
 	})
