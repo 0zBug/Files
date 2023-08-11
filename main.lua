@@ -17,7 +17,7 @@ local Files
 function Files(Path, Value, Meta)
 	local Path = Path and (Path .. "/") or ""
 
-	return Meta and Value or debug.setmetatable(Value or {}, {
+	return Meta and Value or setmetatable({}, {
 		__index = function(self, Index)
 			local Path = Path .. Index
 
