@@ -19,7 +19,9 @@ function Files(Path, Value)
 		__index = function(self, Index)
 			local Path = Path .. Index
 
-			return Files(Path, isfile(Path) and readfile(Path) or isfolder(Index) and Index)
+      local Contents = isfile(Path) and readfile(Path) or isfolder(Index) and Index or false
+
+			return Contents and Files(Path, Contents) or nil
 		end,
 		__newindex = function(self, Index, Value)
 			local Path = Path .. Index
@@ -35,4 +37,4 @@ function Files(Path, Value)
 	})
 end
 
-return Files
+return Files()
